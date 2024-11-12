@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TaHa SITE</title>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #000;
+        color: #0f0;
+        font-family: monospace;
+        font-size: 18px;
+        overflow: hidden;
+    }
+
+    .ascii-art {
+        white-space: pre;
+        font-size: 16px;
+        color: #0f0;
+        animation: shake 0.1s infinite alternate;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    .text {
+        font-size: 24px;
+        animation: shake 0.1s infinite alternate;
+    }
+
+    .username {
+        font-size: 18px;
+        color: #0f0;
+        animation: shake 0.1s infinite alternate;
+        margin-top: 15px;
+    }
+
+    @keyframes shake {
+        0% { transform: translate(1px, 1px) rotate(0deg); }
+        20% { transform: translate(-1px, -2px) rotate(-1deg); }
+        40% { transform: translate(-3px, 0px) rotate(1deg); }
+        60% { transform: translate(3px, 2px) rotate(0deg); }
+        80% { transform: translate(1px, -1px) rotate(1deg); }
+        100% { transform: translate(-1px, 1px) rotate(-1deg); }
+    }
+
+    .cursor {
+        display: inline-block;
+        width: 10px;
+        background-color: #0f0;
+        margin-left: 5px;
+        animation: blink 0.5s infinite alternate;
+    }
+
+    @keyframes blink {
+        from { opacity: 1; }
+        to { opacity: 0; }
+    }
+</style>
+</head>
+<body>
+
+<div class="ascii-art">
+    <pre>
+  ████████╗ █████╗ ██╗  ██╗ █████╗ 
+  ╚══██╔══╝██╔══██╗██║  ██║██╔══██╗
+     ██║   ███████║███████║███████║
+     ██║   ██╔══██║██╔══██║██╔══██║
+     ██║   ██║  ██║██║  ██║██║  ██║
+     ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝
+    </pre>
+</div>
+
+<div class="container">
+    <div id="animatedText" class="text"></div>
+    <span class="cursor"></span>
+</div>
+
+<div class="username">
+    my user = @z3cop
+</div>
+
+<script>
+    const text = "WELCOME TO TaHa SITE...";
+    let index = 0;
+
+    function typeEffect() {
+        if (index < text.length) {
+            document.getElementById("animatedText").innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeEffect, 100); 
+        }
+    }
+
+    typeEffect();
+</script>
+
+</body>
+</html>
